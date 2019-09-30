@@ -2142,6 +2142,32 @@ core::Error UserPrefValues::setDataViewerMaxColumns(int val)
    return writePref("data_viewer_max_columns", val);
 }
 
+/**
+ * How long to wait after last keystroke before updating live region.
+ */
+int UserPrefValues::a11yTypingStatusDelayMs()
+{
+   return readPref<int>("a11y_typing_status_delay_ms");
+}
+
+core::Error UserPrefValues::setA11yTypingStatusDelayMs(int val)
+{
+   return writePref("a11y_typing_status_delay_ms", val);
+}
+
+/**
+ * Whether to prioritize application keyboard handling over assistive technology handling.
+ */
+bool UserPrefValues::a11yAriaApplicationRole()
+{
+   return readPref<bool>("a11y_aria_application_role");
+}
+
+core::Error UserPrefValues::setA11yAriaApplicationRole(bool val)
+{
+   return writePref("a11y_aria_application_role", val);
+}
+
 std::vector<std::string> UserPrefValues::allKeys()
 {
    return std::vector<std::string>({
@@ -2308,6 +2334,8 @@ std::vector<std::string> UserPrefValues::allKeys()
       kSubmitCrashReports,
       kDefaultRVersion,
       kDataViewerMaxColumns,
+      kA11yTypingStatusDelayMs,
+      kA11yAriaApplicationRole,
    });
 }
    

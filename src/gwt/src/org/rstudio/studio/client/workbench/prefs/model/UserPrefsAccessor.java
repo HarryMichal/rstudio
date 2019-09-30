@@ -1533,6 +1533,22 @@ public class UserPrefsAccessor extends Prefs
       return integer("data_viewer_max_columns", 50);
    }
 
+   /**
+    * How long to wait after last keystroke before updating live region.
+    */
+   public PrefValue<Integer> a11yTypingStatusDelayMs()
+   {
+      return integer("a11y_typing_status_delay_ms", 2000);
+   }
+
+   /**
+    * Whether to prioritize application keyboard handling over assistive technology handling.
+    */
+   public PrefValue<Boolean> a11yAriaApplicationRole()
+   {
+      return bool("a11y_aria_application_role", true);
+   }
+
    public void syncPrefs(String layer, JsObject source)
    {
       if (source.hasKey("run_rprofile_on_resume"))
@@ -1861,6 +1877,10 @@ public class UserPrefsAccessor extends Prefs
          defaultRVersion().setValue(layer, source.getObject("default_r_version"));
       if (source.hasKey("data_viewer_max_columns"))
          dataViewerMaxColumns().setValue(layer, source.getInteger("data_viewer_max_columns"));
+      if (source.hasKey("a11y_typing_status_delay_ms"))
+         a11yTypingStatusDelayMs().setValue(layer, source.getInteger("a11y_typing_status_delay_ms"));
+      if (source.hasKey("a11y_aria_application_role"))
+         a11yAriaApplicationRole().setValue(layer, source.getBool("a11y_aria_application_role"));
    }
    
 

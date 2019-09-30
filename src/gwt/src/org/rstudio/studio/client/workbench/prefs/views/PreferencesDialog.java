@@ -48,6 +48,7 @@ public class PreferencesDialog extends PreferencesDialogBase<UserPrefs>
                             SpellingPreferencesPane spelling, 
                             PublishingPreferencesPane publishing,
                             TerminalPreferencesPane terminal,
+                            AccessibilityPreferencesPane accessibility,
                             UserPrefs userPrefs,
                             UserState userState)
    {
@@ -64,7 +65,8 @@ public class PreferencesDialog extends PreferencesDialogBase<UserPrefs>
                                    spelling,
                                    sourceControl, 
                                    publishing,
-                                   terminal}); 
+                                   terminal,
+                                   accessibility});
       session_ = session;
       server_ = server;
       state_ = userState;

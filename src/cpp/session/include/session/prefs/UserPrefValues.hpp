@@ -290,6 +290,8 @@ namespace prefs {
 #define kDefaultRVersionRHome "r_home"
 #define kDefaultRVersionLabel "label"
 #define kDataViewerMaxColumns "data_viewer_max_columns"
+#define kA11yTypingStatusDelayMs "a11y_typing_status_delay_ms"
+#define kA11yAriaApplicationRole "a11y_aria_application_role"
 
 class UserPrefValues: public Preferences
 {
@@ -1272,6 +1274,18 @@ public:
     */
    int dataViewerMaxColumns();
    core::Error setDataViewerMaxColumns(int val);
+
+   /**
+    * How long to wait after last keystroke before updating live region.
+    */
+   int a11yTypingStatusDelayMs();
+   core::Error setA11yTypingStatusDelayMs(int val);
+
+   /**
+    * Whether to prioritize application keyboard handling over assistive technology handling.
+    */
+   bool a11yAriaApplicationRole();
+   core::Error setA11yAriaApplicationRole(bool val);
 
 };
 

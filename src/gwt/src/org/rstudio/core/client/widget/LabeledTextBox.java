@@ -32,6 +32,12 @@ import org.rstudio.core.client.dom.DomUtils;
 public class LabeledTextBox extends Composite
                             implements HasText, HasKeyUpHandlers
 {
+   public LabeledTextBox(String label, String textBoxId)
+   {
+      this(textBoxId);
+      setLabelText(label);
+   }
+
    public @UiConstructor LabeledTextBox(String textBoxId)
    {
       FlowPanel flowPanel = new FlowPanel();

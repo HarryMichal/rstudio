@@ -931,6 +931,15 @@
             "type": "integer",
             "default": 50,
             "description": "The maximum number of columns to show at once in the data viewer."
-        }
-    }
+        },
+        "a11y_typing_status_delay_ms": {
+            "type": "integer",
+            "default": 2000,
+            "description": "How long to wait after last keystroke before updating live region."
+        },
+        "a11y_aria_application_role": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to prioritize application keyboard handling over assistive technology handling."
+        }    }
 }

@@ -169,4 +169,7 @@ public class ElementIds
    public final static String TEXTBOXBUTTON_TEXT = "textboxbutton_text";
    public final static String TEXTBOXBUTTON_BUTTON = "textboxbutton_button";
    public final static String TEXTBOXBUTTON_HELP = "textboxbutton_help";
+
+   // Accessibility Preferences
+   public final static String A11Y_PREF_TYPING_DELAY = "a11y_pref_typing_delay";
 }
