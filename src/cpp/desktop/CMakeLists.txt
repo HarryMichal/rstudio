@@ -600,6 +600,13 @@ endif()
 # install desktop integration files on linux
 if(RSTUDIO_INSTALL_FREEDESKTOP)
 
+   # if built in flatpak change /usr to /app
+   if(FLATPAK)
+      set(FREEDESKTOP_PREFIX /app)
+   else()
+      set(FREEDESKTOP_PREFIX /usr)
+   endif()
+
    # define freedesktop dirs
    set(RSTUDIO_FREEDESKTOP_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resources/freedesktop)
    set(RSTUDIO_FREEDESKTOP_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/resources/freedesktop)
@@ -608,11 +615,11 @@ if(RSTUDIO_INSTALL_FREEDESKTOP)
    configure_file (${RSTUDIO_FREEDESKTOP_SOURCE_DIR}/rstudio.desktop.in
                    ${RSTUDIO_FREEDESKTOP_BINARY_DIR}/rstudio.desktop)
    install(FILES ${RSTUDIO_FREEDESKTOP_BINARY_DIR}/rstudio.desktop
-           DESTINATION /usr/share/applications)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/applications)
 
    # mime types
    install(FILES ${RSTUDIO_FREEDESKTOP_SOURCE_DIR}/rstudio.xml
-           DESTINATION /usr/share/mime/packages)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/mime/packages)
 
    # define icon dirs
    set(RSTUDIO_ICONS_16 ${RSTUDIO_FREEDESKTOP_SOURCE_DIR}/icons/16x16)
@@ -623,40 +630,40 @@ if(RSTUDIO_INSTALL_FREEDESKTOP)
 
    # application icon
    install(FILES ${RSTUDIO_ICONS_32}/rstudio.png
-           DESTINATION /usr/share/pixmaps)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/pixmaps)
    install(FILES ${RSTUDIO_ICONS_16}/rstudio.png
-           DESTINATION /usr/share/icons/hicolor/16x16/apps)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/16x16/apps)
    install(FILES ${RSTUDIO_ICONS_24}/rstudio.png
-           DESTINATION /usr/share/icons/hicolor/24x24/apps)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/24x24/apps)
    install(FILES ${RSTUDIO_ICONS_32}/rstudio.png
-           DESTINATION /usr/share/icons/hicolor/32x32/apps)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/32x32/apps)
    install(FILES ${RSTUDIO_ICONS_48}/rstudio.png
-           DESTINATION /usr/share/icons/hicolor/48x48/apps)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/48x48/apps)
    install(FILES ${RSTUDIO_ICONS_256}/rstudio.png
-           DESTINATION /usr/share/icons/hicolor/256x256/apps)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/256x256/apps)
 
    # .RData icon
    install(FILES ${RSTUDIO_ICONS_16}/application-x-r-data.png
-           DESTINATION /usr/share/icons/hicolor/16x16/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/16x16/mimetypes)
    install(FILES ${RSTUDIO_ICONS_24}/application-x-r-data.png
-           DESTINATION /usr/share/icons/hicolor/24x24/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/24x24/mimetypes)
    install(FILES ${RSTUDIO_ICONS_32}/application-x-r-data.png
-           DESTINATION /usr/share/icons/hicolor/32x32/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/32x32/mimetypes)
    install(FILES ${RSTUDIO_ICONS_48}/application-x-r-data.png
-           DESTINATION /usr/share/icons/hicolor/48x48/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/48x48/mimetypes)
    install(FILES ${RSTUDIO_ICONS_256}/application-x-r-data.png
-           DESTINATION /usr/share/icons/hicolor/256x256/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/256x256/mimetypes)
 
    # .Rproj icon
    install(FILES ${RSTUDIO_ICONS_16}/application-x-r-project.png
-           DESTINATION /usr/share/icons/hicolor/16x16/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/16x16/mimetypes)
    install(FILES ${RSTUDIO_ICONS_24}/application-x-r-project.png
-           DESTINATION /usr/share/icons/hicolor/24x24/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/24x24/mimetypes)
    install(FILES ${RSTUDIO_ICONS_32}/application-x-r-project.png
-           DESTINATION /usr/share/icons/hicolor/32x32/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/32x32/mimetypes)
    install(FILES ${RSTUDIO_ICONS_48}/application-x-r-project.png
-           DESTINATION /usr/share/icons/hicolor/48x48/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/48x48/mimetypes)
    install(FILES ${RSTUDIO_ICONS_256}/application-x-r-project.png
-           DESTINATION /usr/share/icons/hicolor/256x256/mimetypes)
+           DESTINATION ${FREEDESKTOP_PREFIX}/share/icons/hicolor/256x256/mimetypes)
 
 endif()
